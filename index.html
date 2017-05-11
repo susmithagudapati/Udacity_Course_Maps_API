@@ -23,13 +23,20 @@
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 40.7413549, lng: -73.9980244},
-                zoom: 15
+                zoom: 13
             });
             var tribeca = {lat: 40.719526, lng: -74.0089934};
             var marker = new google.maps.Marker({
                 position: tribeca,
                 map: map,
                 title: 'First Marker!'
+            });
+            var infowindow = google.map.InfoWindow({
+                content: "Do you ever feel like an InfoWindow, floating through the air," +
+                          " ready to start again?"
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
             });
         }
     </script>
